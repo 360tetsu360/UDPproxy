@@ -51,6 +51,12 @@ void Proxy::Start() {
         int t = recvfrom(serverSock, (char*)buf, sizeof(buf), 0, &clientaddr, &length);
         int t2 = recv(clientSock, (char*)buf2, sizeof(buf2), 0);
         if (t >= 1) {
+            if ((int)buf[0] == 0x84) {
+
+                std::vector<byte> data;
+                data.insert(data.end(), &buf[14], buf + t);
+                std::cout << std::hex << (int)data[0] << std::endl;
+            }
             sendto(clientSock, (char*)buf, t, 0, (struct sockaddr*)&serveraddr, sizeof(serveraddr));
         }
         if (t2 >= 1) {

@@ -3,8 +3,21 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Proxy.cpp" />
+    <ClCompile Include="Zlib.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Proxy.h" />
+    <ClInclude Include="Zlib.h" />
+    <ClInclude Include="zlib\include\zconf.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\include\zlib.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="zlib">
+      <UniqueIdentifier>{3a7635c8-2180-4007-83ea-f59038c4b1ae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

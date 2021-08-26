@@ -6,7 +6,10 @@
 #include <windowsx.h>
 #include <sstream>
 #include <iostream>
-
+#include <zlib.h>
+#include <zconf.h>
+#include <vector>
+#include "Zlib.h"
 #pragma comment(lib, "ws2_32.lib")
 #pragma warning(disable:4996) 
 
