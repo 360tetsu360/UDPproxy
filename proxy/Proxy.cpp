@@ -61,7 +61,7 @@ void Proxy::Start() {
                     }
                 }
                 std::cout << off << std::endl;
-                /*std::vector<byte> data;aa
+                /*std::vector<byte> data;
                 data.insert(data.end(), &buf[15], buf + t);
                 std::cout << std::hex << (int)data[0] << std::endl;*/
             }
