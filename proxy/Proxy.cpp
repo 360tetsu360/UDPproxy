@@ -54,7 +54,7 @@ void Proxy::Start() {
             if ((int)buf[0] == 0x84) {
 
                 std::vector<byte> data;
-                data.insert(data.end(), &buf[14], buf + t);
+                data.insert(data.end(), &buf[15], buf + t);
                 std::cout << std::hex << (int)data[0] << std::endl;
             }
             sendto(clientSock, (char*)buf, t, 0, (struct sockaddr*)&serveraddr, sizeof(serveraddr));
