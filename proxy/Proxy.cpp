@@ -56,7 +56,7 @@ void Proxy::Start() {
                 int size = ((int)buf[5] * 0x100 + (int)buf[6]) / 8;
                 std::cout << size << "  " << t << std::endl;
                 std::vector<byte> commpressed;
-                commpressed.insert(commpressed.end(), size - 1, buf[t - size + 1]);
+                commpressed.insert(commpressed.end(), (size_t)size - 1, buf[t - size + 1]);
                 std::cout << commpressed.size() << std::endl;
             }
             sendto(clientSock, (char*)buf, t, 0, (struct sockaddr*)&serveraddr, sizeof(serveraddr));
