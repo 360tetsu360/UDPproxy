@@ -19,11 +19,89 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Encrypt.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="openssl\include\applink.c" />
     <ClCompile Include="Proxy.cpp" />
     <ClCompile Include="Zlib.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Encrypt.h" />
+    <ClInclude Include="openssl\include\aes.h" />
+    <ClInclude Include="openssl\include\asn1.h" />
+    <ClInclude Include="openssl\include\asn1t.h" />
+    <ClInclude Include="openssl\include\asn1_mac.h" />
+    <ClInclude Include="openssl\include\async.h" />
+    <ClInclude Include="openssl\include\bio.h" />
+    <ClInclude Include="openssl\include\blowfish.h" />
+    <ClInclude Include="openssl\include\bn.h" />
+    <ClInclude Include="openssl\include\buffer.h" />
+    <ClInclude Include="openssl\include\camellia.h" />
+    <ClInclude Include="openssl\include\cast.h" />
+    <ClInclude Include="openssl\include\cmac.h" />
+    <ClInclude Include="openssl\include\cms.h" />
+    <ClInclude Include="openssl\include\comp.h" />
+    <ClInclude Include="openssl\include\conf.h" />
+    <ClInclude Include="openssl\include\conf_api.h" />
+    <ClInclude Include="openssl\include\crypto.h" />
+    <ClInclude Include="openssl\include\ct.h" />
+    <ClInclude Include="openssl\include\des.h" />
+    <ClInclude Include="openssl\include\dh.h" />
+    <ClInclude Include="openssl\include\dsa.h" />
+    <ClInclude Include="openssl\include\dtls1.h" />
+    <ClInclude Include="openssl\include\ebcdic.h" />
+    <ClInclude Include="openssl\include\ec.h" />
+    <ClInclude Include="openssl\include\ecdh.h" />
+    <ClInclude Include="openssl\include\ecdsa.h" />
+    <ClInclude Include="openssl\include\engine.h" />
+    <ClInclude Include="openssl\include\err.h" />
+    <ClInclude Include="openssl\include\evp.h" />
+    <ClInclude Include="openssl\include\e_os2.h" />
+    <ClInclude Include="openssl\include\hmac.h" />
+    <ClInclude Include="openssl\include\idea.h" />
+    <ClInclude Include="openssl\include\kdf.h" />
+    <ClInclude Include="openssl\include\lhash.h" />
+    <ClInclude Include="openssl\include\md2.h" />
+    <ClInclude Include="openssl\include\md4.h" />
+    <ClInclude Include="openssl\include\md5.h" />
+    <ClInclude Include="openssl\include\mdc2.h" />
+    <ClInclude Include="openssl\include\modes.h" />
+    <ClInclude Include="openssl\include\objects.h" />
+    <ClInclude Include="openssl\include\obj_mac.h" />
+    <ClInclude Include="openssl\include\ocsp.h" />
+    <ClInclude Include="openssl\include\opensslconf.h" />
+    <ClInclude Include="openssl\include\opensslv.h" />
+    <ClInclude Include="openssl\include\ossl_typ.h" />
+    <ClInclude Include="openssl\include\pem.h" />
+    <ClInclude Include="openssl\include\pem2.h" />
+    <ClInclude Include="openssl\include\pkcs12.h" />
+    <ClInclude Include="openssl\include\pkcs7.h" />
+    <ClInclude Include="openssl\include\rand.h" />
+    <ClInclude Include="openssl\include\rc2.h" />
+    <ClInclude Include="openssl\include\rc4.h" />
+    <ClInclude Include="openssl\include\rc5.h" />
+    <ClInclude Include="openssl\include\ripemd.h" />
+    <ClInclude Include="openssl\include\rsa.h" />
+    <ClInclude Include="openssl\include\safestack.h" />
+    <ClInclude Include="openssl\include\seed.h" />
+    <ClInclude Include="openssl\include\sha.h" />
+    <ClInclude Include="openssl\include\srp.h" />
+    <ClInclude Include="openssl\include\srtp.h" />
+    <ClInclude Include="openssl\include\ssl.h" />
+    <ClInclude Include="openssl\include\ssl2.h" />
+    <ClInclude Include="openssl\include\ssl3.h" />
+    <ClInclude Include="openssl\include\stack.h" />
+    <ClInclude Include="openssl\include\symhacks.h" />
+    <ClInclude Include="openssl\include\tls1.h" />
+    <ClInclude Include="openssl\include\ts.h" />
+    <ClInclude Include="openssl\include\txt_db.h" />
+    <ClInclude Include="openssl\include\ui.h" />
+    <ClInclude Include="openssl\include\whrlpool.h" />
+    <ClInclude Include="openssl\include\x509.h" />
+    <ClInclude Include="openssl\include\x509v3.h" />
+    <ClInclude Include="openssl\include\x509_vfy.h" />
+    <ClInclude Include="openssl\include\__DECC_INCLUDE_EPILOGUE.H" />
+    <ClInclude Include="openssl\include\__DECC_INCLUDE_PROLOGUE.H" />
     <ClInclude Include="Proxy.h" />
     <ClInclude Include="Zlib.h" />
     <ClInclude Include="zlib\include\zconf.h" />
@@ -101,7 +179,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <DisableSpecificWarnings>4996</DisableSpecificWarnings>
-      <AdditionalIncludeDirectories>C:\Users\kasum\source\repos\proxy\proxy\RakNet;C:\Users\kasum\source\repos\proxy\proxy\zlib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\kasum\source\repos\proxy\proxy\openssl\include;C:\Users\kasum\source\repos\proxy\proxy\RakNet;C:\Users\kasum\source\repos\proxy\proxy\zlib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -118,7 +196,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <DisableSpecificWarnings>4996</DisableSpecificWarnings>
-      <AdditionalIncludeDirectories>C:\Users\kasum\source\repos\proxy\proxy\RakNet;C:\Users\kasum\source\repos\proxy\proxy\zlib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\kasum\source\repos\proxy\proxy\openssl\include;C:\Users\kasum\source\repos\proxy\proxy\RakNet;C:\Users\kasum\source\repos\proxy\proxy\zlib\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -134,7 +212,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\kasum\source\repos\proxy\proxy\RakNet;C:\Users\kasum\source\repos\proxy\proxy\zlib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\kasum\source\repos\proxy\proxy\openssl\include;C:\Users\kasum\source\repos\proxy\proxy\RakNet;C:\Users\kasum\source\repos\proxy\proxy\zlib\include</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -151,7 +229,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\kasum\source\repos\proxy\proxy\RakNet;C:\Users\kasum\source\repos\proxy\proxy\zlib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\kasum\source\repos\proxy\proxy\openssl\include;C:\Users\kasum\source\repos\proxy\proxy\RakNet;C:\Users\kasum\source\repos\proxy\proxy\zlib\include</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
