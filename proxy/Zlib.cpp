@@ -1,7 +1,16 @@
 #include "Zlib.h"
 #include <iostream>
+#include <assert.h>
 #define INBUFSIZ   4096 
 #define OUTBUFSIZ  4096
+#define CHUNK  4096
+
+#define CHECK_ERR(err, msg) { \
+    if (err != Z_OK) { \
+        fprintf(stderr, "%s error: %d\n", msg, err); \
+        exit(1); \
+    } \
+}
 
 Zlib* instance;
 
@@ -18,51 +27,12 @@ Zlib::Zlib()
         printf("Fuckin zlib");
     }
 }
-
-bool Zlib::Inflate(
-    const BYTE* const pDataIn,
-    DWORD& dataInSize,
-    BYTE* pDataOut,
-    DWORD& dataOutSize)
-{
-    if (pDataIn)
-    {
-        if (m_stream.avail_in == 0)
-        {
-            m_stream.avail_in = dataInSize;
-            m_stream.next_in = const_cast<BYTE* const>(pDataIn);
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    m_stream.avail_out = dataOutSize;
-    m_stream.next_out = pDataOut;
-
-    bool done = false;
-
-    do
-    {
-        int result = inflate(&m_stream, Z_BLOCK);
-
-        if (result < 0)
-        {
-            printf("CDataInflator::Inflate()");
-            break;
-        }
-
-        done = (m_stream.avail_in == 0 ||
-            (dataOutSize != m_stream.avail_out &&
-                m_stream.avail_out != 0));
-    }    while (!done && m_stream.avail_out == dataOutSize);
-
-    dataInSize = m_stream.avail_in;
-
-    dataOutSize = dataOutSize - m_stream.avail_out;
-
-    return done;
+static alloc_func zalloc = (alloc_func)0;
+static free_func zfree = (free_func)0;
+void Zlib::Inflate(Byte* compr, uLong comprLen, Byte* uncompr, uLong uncomprLen) {
+    int err = uncompress(uncompr, &uncomprLen, compr, comprLen);
+    //CHECK_ERR(err, "uncompress");
+    std::cout << err << std::endl;
 }
 
 Zlib::~Zlib()

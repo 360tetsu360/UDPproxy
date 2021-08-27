@@ -42,6 +42,7 @@ void Proxy::Initialize(int hostPort, std::string remoteAddress, int remotePort) 
     ioctlsocket(clientSock, FIONBIO, &val);
 
 }
+
 void Proxy::Start() {
     byte buf[4096];
     byte buf2[4096];
@@ -51,19 +52,12 @@ void Proxy::Start() {
         int t = recvfrom(serverSock, (char*)buf, sizeof(buf), 0, &clientaddr, &length);
         int t2 = recv(clientSock, (char*)buf2, sizeof(buf2), 0);
         if (t >= 1) {
-            if ((int)buf[0] == 0x84) {
-                int off = 0;
-                for (size_t i = 0; i < t; i++)
-                {
-                    if (buf[i] == 0xfe) {
-                        off = i;
-                        break;
-                    }
-                }
-                std::cout << off << std::endl;
-                /*std::vector<byte> data;
-                data.insert(data.end(), &buf[15], buf + t);
-                std::cout << std::hex << (int)data[0] << std::endl;*/
+            if ((int)((int)buf[0] / 0x10) == 8) {
+                int size = ((int)buf[5] * 0x100 + (int)buf[6]) / 8;
+                std::cout << size << "  " << t << std::endl;
+                std::vector<byte> commpressed;
+                commpressed.insert(commpressed.end(), size - 1, buf[t - size + 1]);
+                std::cout << commpressed.size() << std::endl;
             }
             sendto(clientSock, (char*)buf, t, 0, (struct sockaddr*)&serveraddr, sizeof(serveraddr));
         }
